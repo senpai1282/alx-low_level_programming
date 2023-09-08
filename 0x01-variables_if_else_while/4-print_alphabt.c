@@ -15,4 +15,10 @@ int main(void)
 	{
 		if ((c == 'q' || c == 'e') != 1)
 		{
-			putch
+			putchar(c);
+		}
+
+	}
+	putchar('\n');
+	return (0);
+}
