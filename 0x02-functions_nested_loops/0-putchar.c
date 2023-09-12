@@ -1,19 +1,8 @@
-#include "main.h"
-
-/**
- * main - Entry point
- * Return:0
- */
+#include <unistd.h>
 
 int main(void)
 {
-char c[9] = "_putchar";
-int i = 0;
-while (i < 8)
-{
-_putchar(c[i]);
-i++;
-}
-_putchar('\n');
-return (0);
-}
+    char str[] = "_putchar\n";
+    write(1, str, sizeof(str) - 1);
+    return (0);
+}}
