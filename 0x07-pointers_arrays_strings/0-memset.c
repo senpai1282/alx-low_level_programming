@@ -1,11 +1,12 @@
-#include "holberton.h"
+#include "main.h"
+
 /**
- * _memset - function that fills memory with a constant byte
- *@s: first value
- *@b: second value
- *@n: thirth value
+ * *_memset - fills memory with a constant byte.
+ * @s: pointer to the byte buffer
+ * @b: constant byte
+ * @n: number of buffer spaces to be filled
  *
- * Return: char with result of memset
+ * Return: s
  */
 char *_memset(char *s, char b, unsigned int n)
 {
@@ -15,5 +16,6 @@ char *_memset(char *s, char b, unsigned int n)
 	{
 		s[i] = b;
 	}
+
 	return (s);
 }
