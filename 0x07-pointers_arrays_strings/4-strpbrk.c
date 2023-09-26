@@ -1,25 +1,28 @@
-#include "holberton.h"
+#include "main.h"
+
 /**
- * _strpbrk - function that searches a string for any of a set of bytes..
- *@s: first value -char
- *@accept: second value - char
- *
- * Return: char with result
+ * _strpbrk - searches a string for any of a set of bytes.
+ * @s: string to be scanned
+ * @accept: string containing characters to match
+ * Description: This function finds the first character in the string s
+ * that matches any character specified in accept.
+ * This does not include terminating null-characters.
+ * Return: pointer to the byte in s that matches one of the bytes in accept
  */
 char *_strpbrk(char *s, char *accept)
 {
-	int j = 0;
+	int i, j;
 
-	while (*s)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		while (accept[j] != '\0')
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-			if (*s == accept[j])
-				return (s);
-			j++;
+			if (s[i] == accept[j])
+			{
+				return (s + i);
+			}
 		}
-		j = 0;
-		s++;
 	}
-	return ('\0');
+
+	return (0);
 }

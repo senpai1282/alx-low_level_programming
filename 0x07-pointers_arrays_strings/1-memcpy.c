@@ -1,11 +1,13 @@
-#include "holberton.h"
+#include "main.h"
+
 /**
- * _memcpy - function that copies memory area
- *@dest: the address of memory to print
- *@src: second value
- *@n: thirth value
- *
- * Return: char with result of memset
+ * *_memcpy - copies n characters from the memory
+ * area source to the memory area destination
+ * @dest: Pointer to the destination array
+ * @src: Pointer to the source array
+ * @n: The number of bytes to be copied from
+ * source to destination
+ * Return: dest
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
