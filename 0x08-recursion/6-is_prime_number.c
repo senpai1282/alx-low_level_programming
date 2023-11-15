@@ -1,36 +1,31 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
- * check_prime - Helper function to check if a number is prime.
- * @n: Number to be checked.
- * @i: Iterator variable for checking divisibility.
- *
- * Return: 1 if n is prime, otherwise 0.
+ * is_prime_number - check if n is a prime number
+ * @n: int
+ * Return: 0 or 1
  */
-int check_prime(int n, int i)
+
+
+int is_prime_number(int n)
 {
-    if (n <= 2)
-        return (n == 2); // Return 1 if n is 2, else return 0
-
-    if (n % i == 0)
-        return (0); // n is divisible by i, not a prime number
-
-    if (i * i > n)
-        return (1); // Reached the square root of n, it's a prime number
-
-    return check_prime(n, i + 1); // Check divisibility with the next iterator
+	return (check_prime(n, 2));
 }
 
 /**
- * is_prime_number - Checks if an input integer is a prime number.
- * @n: Number to be checked.
- *
- * Return: 1 if n is prime, otherwise 0.
+ * check_prime - check all number < n if they can divide it
+ * @n: int
+ * @resp: int
+ * Return: int
  */
-int is_prime_number(int n)
-{
-    if (n <= 1)
-        return (0); // Numbers less than or equal to 1 are not prime
 
-    return (check_prime(n, 2)); // Start checking from divisor 2
+int check_prime(int n, int resp)
+{
+
+	if (resp >= n && n > 1)
+		return (1);
+	else if (n % resp == 0 || n <= 1)
+		return (0);
+	else
+		return (check_prime(n, resp + 1));
 }
