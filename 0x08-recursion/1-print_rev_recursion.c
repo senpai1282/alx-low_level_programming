@@ -1,8 +1,10 @@
 #include "main.h"
 /**
- * _puts_recursion - Prints a string followed by a new line.
- * @s: The string to be printed.
- */
+  *_print_rev_recursion - prints a string in reverse.
+  *@s: pointer to string.
+  *
+  *Return: void.
+  */
 void _print_rev_recursion(char *s)
 {
 	if(*s != '\0')
