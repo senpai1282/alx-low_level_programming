@@ -6,14 +6,11 @@
  *
  * Return: Factorial of n, or -1 if n is negative.
  */
-int _strlen_recursion(char *s)
+int factorial(int n)
 {
-	if (*s)
-	{
-		return (1 + _strlen_recursion(s + 1));
-	}
-	else
-	{
-		return (0);
-	}
+	if (n < 0)
+		return (-1);
+	if (n == 0 || n == 1)
+		return (1);
+	return (n * factorial(n - 1));
 }
