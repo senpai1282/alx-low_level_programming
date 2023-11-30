@@ -1,43 +1,48 @@
-#include <studio.h>
+#include <stdio.h>
 #include <stdlib.h>
-#include "3-calc.h"
+
+void print_opcodes(unsigned char *ptr, int bytes);
 
 /**
- * main - entry point
+ * main - Entry point
  * @argc: Argument count
  * @argv: Argument vector
  *
- * Return: Always 0 (success)
+ * Return: Always 0 on success, 1 for incorrect number of arguments, 2 for negative bytes
  */
 int main(int argc, char *argv[])
+{
+	int bytes;
+
+    	if (argc != 2)
 	{
-		int num1, num2, result;
-		int(*operation)(int, int);
-
-		if (argc != 4)
-			{
-				printf("Error\n");
-				exit(98);
-			}
-
-		num1 = atoi(argv[1]);
-		num2 = atoi(argv[3]);
-
-		operation = get_op_func(argv[2]);
-
-		if (operation == NULL)
-			{
-				printf("Error\n");
-				exit(99);
-			}
-
-		if ((*argv[2] == '/' || *argv[2] == '%') && num2 == 0)
-			{
-				printf("Error\n");
-				exit(100);
-			}
-		result = operation(num1, num2);
-		printf("%d\n", result);
-
-		return (0);
+		printf("Error\n");
+		return 1;
 	}
+
+	bytes = atoi(argv[1]);
+	if (bytes < 0)
+	{
+		printf("Error\n");
+		return 2;
+	}
+
+	void *(*func_ptr)(void *, int, char **) = (void *(*)(void *, int, char **))&main;
+
+	print_opcodes((unsigned char *)func_ptr, bytes);
+
+	return 0;
+}
+
+void print_opcodes(unsigned char *ptr, int bytes)
+{
+	int i;
+
+	for (i = 0; i < bytes; i++)
+	{
+	printf("%02x", *(ptr + i));
+	if (i != bytes - 1)
+		printf(" ");
+	}
+	printf("\n");
+}
