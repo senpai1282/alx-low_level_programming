@@ -28,5 +28,8 @@ list_t *add_node(list_t **head, const char *str);
 list_t *add_node_end(list_t **head, const char *str);
 /* Function prototype */
 void free_list(list_t *head);
+/* Attribute to execute function before main */
+void myStartupFun(void) __attribute__ ((constructor));
+
 
 #endif /* LISTS_H */
